@@ -17,7 +17,7 @@ I chose to go with Ubuntu 22.04, and dual-booting it was fairly straightforward,
 ```
 lspci
 ```
-![alt text](image.png)
+![alt text](../assets/images/image.png)
 
 points to the Network controller being MEDIATEK Corp. Device 7902.
 
@@ -26,14 +26,14 @@ A quick Google search led to this [exchange](https://unix.stackexchange.com/ques
 I thought the hurdles ended here, and blissfully used the laptop for a few more days. One night, I had a call, and hopped onto Google Meet just to find out that the microphone wasn't recognized either. I scrambled to find a solution, and then decided to make do with my mobile phone instead. 
 
 The next day, it was time to figure out this new issue. What could be the issue? Settings -> Sound showed me this:
-![alt text](image-1.png)
+![alt text](../assets/images/image-1.png)
 
 Great, so my output devices work fine but input does not. Time to move to the terminal:
 
 ```
 lspci
 ```
-![alt text](image.png)
+![alt text](../assets/images/image.png)
 to the rescue again. 
 
 The audio devices and multimedia controllers are all from AMD. Honestly, I should've known this was going to be a problem :P
@@ -48,12 +48,12 @@ I downloaded the source, and edited the file to add an entry for my device E1404
 
 Note: Make sure to back up any important data you have. 
 Now for the moment of truth:
-![alt text](image-2.png)
+![alt text](../assets/images/image-2.png)
 
 Hooray! That's sorted, then. 
 I happily went to move all my backed-up data from the hard disk back onto my system - and found out that I can no longer get it to recognize a USB device. 
 
-![ugh.](stitch.gif)
+![ugh.](../assets/images/stitch.gif)
 
 Interestingly, the WiFi Adapter still works, and no other USB device works with the new kernel version. I was too tired of fiddling with kernel code at this point, so it's still an open issue for me. My current solution is to boot into whichever kernel I need depending on whether I'm joining a call or using a USB. Haven't had to use both simultaneously so far, and I hope it stays that way xD. 
 
